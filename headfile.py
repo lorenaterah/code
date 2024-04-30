@@ -1,6 +1,5 @@
 import sys
 
-
 def head(textfile, n='10'):
     try:
         with open(textfile, 'r') as file:
@@ -11,25 +10,22 @@ def head(textfile, n='10'):
     except IndexError:
         pass
 
-if __name__ == '_main_':
-    arguments = sys.argv
+if __name__ == '__main__':
+    arguments = sys.argv[1:]
 
-    
-    if len(arguments) == 2:
+    if len(arguments) == 1:
         #['./headfile.py', 'document.txt']
-        filetxt = arguments[1]
-
-        head(filetxt)
+        filetxt = arguments[0]
+        head(filetxt) 
     
-    if len(arguments) == 4:
-        #['./headfile.py', '-n', '5', 'document.txt']
-       if arguments[1] == '-n':
-           n = arguments[2]
-           filetxt = arguments[3]
+    elif len(arguments) == 3 and arguments[0] == '-n':
+          #['./headfile.py', '-n', '5', 'document.txt']
+        n = arguments[1]
+        filetxt = arguments[2]
+        head(filetxt, n)
 
-           head(filetxt, n)
-
-    if len(arguments) > 4 or len(arguments) == 3:
+    else:
         print('Provide Required arguments (-n number) or file or both')
 
-    
+#run
+#python './headfile.py', 'document.txt'
