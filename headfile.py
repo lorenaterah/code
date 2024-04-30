@@ -1,5 +1,3 @@
-#! /usr/bin/python3
-
 import sys
 
 
@@ -9,7 +7,7 @@ def head(textfile, n='10'):
             filetext = file.readlines()
 
             for i in range(int(n)):
-                print(filetext[i])
+                print(filetext[i])                                                                  
     except IndexError:
         pass
 
